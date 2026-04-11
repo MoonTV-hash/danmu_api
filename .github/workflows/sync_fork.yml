@@ -16,6 +16,9 @@ jobs:
     steps:
       - name: Checkout target repo
         uses: actions/checkout@v4
+        with:
+          # 【关键补全】：初始化仓库环境时，强制使用你的全权限 Token
+          token: ${{ secrets.SYNC_TOKEN }}
 
       - name: Sync upstream changes
         id: sync
@@ -24,7 +27,6 @@ jobs:
           upstream_sync_repo: huangxd-/danmu_api 
           upstream_sync_branch: main             
           target_sync_branch: main               
-          # 关键修改：这里已经换成了你的专属 Token
           target_repo_token: ${{ secrets.SYNC_TOKEN }}
 
       - name: Check for Failure
