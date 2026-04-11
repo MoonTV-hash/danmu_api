@@ -24,7 +24,8 @@ jobs:
           upstream_sync_repo: huangxd-/danmu_api 
           upstream_sync_branch: main             
           target_sync_branch: main               
-          target_repo_token: ${{ secrets.GITHUB_TOKEN }}
+          # 关键修改：这里已经换成了你的专属 Token
+          target_repo_token: ${{ secrets.SYNC_TOKEN }}
 
       - name: Check for Failure
         if: failure()
